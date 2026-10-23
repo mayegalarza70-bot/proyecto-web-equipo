@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo | Innovatech Solutions</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Colores basados en el diseño verde corporativo de la foto */
+            --primary-green: #064e3b;
+            --accent-green: #059669;
+            --dark-bg: #0f172a;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-main);
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header & Navegación (Igual a la foto) --- */
+        header {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #38bdf8;
+        }
+
+        /* --- Hero Section con el fondo verde de la foto --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(6, 78, 59, 0.85), rgba(6, 78, 59, 0.85)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            border-bottom: 4px solid var(--accent-green);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #e2e8f0;
+        }
+
+        /* --- Grid de Tarjetas (3 en una línea) --- */
+        .team-container {
+            max-width: 1150px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cabecera de tarjeta con el tono verde corporativo */
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            height: 90px;
+            position: relative;
+        }
+
+        .avatar-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        .card-body {
+            padding: 3rem 1.5rem 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-body h3 {
+            font-size: 1.2rem;
+            color: var(--dark-bg);
+            font-weight: 600;
+        }
+
+        .card-body .role {
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body .desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* --- Badges de Habilidades --- */
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-tag {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* --- Enlaces Sociales --- */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+        }
+
+        .social-links a {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- Responsivo --- */
+        @media (max-width: 768px) {
+            .team-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--dark-bg);
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado y Navegación -->
+    <header>
+        <div class="logo">Innovatech Solutions</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="equipo.html" class="active">Equipo</a>
+        </nav>
+    </header>
+
+    <!-- Sección Principal (Estilo verde de la foto) -->
+    <section class="hero">
+        <h1>Nuestro Equipo</h1>
+        <p>Soluciones tecnológicas integrales y a la medida diseñadas por profesionales altamente calificados para potenciar la eficiencia de tu organización.</p>
+    </section>
+
+    <!-- Tarjetas del Equipo -->
+    <main class="team-container">
+
+        <!-- Perfil 1 -->
+        <article class="card">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Ana Pérez" class="avatar-img">
+            </div>
+            <div class="card-body">
+                <div>
+                    <h3>Ana Pérez</h3>
+                    <div class="role">Directora de Tecnología (CTO)</div>
+                    <p class="desc">Lidera la estrategia tecnológica global definiendo arquitecturas sólidas y escalables.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Liderazgo</span>
+                        <span class="skill-tag">Cloud</span>
+                        <span class="skill-tag">Arquitectura</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Perfil 2 -->
+        <article class="card">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Carlos Gómez" class="avatar-img">
+            </div>
+            <div class="card-body">
+                <div>
+                    <h3>Carlos Gómez</h3>
+                    <div class="role">Backend Lead</div>
+                    <p class="desc">Especialista en APIs de alta velocidad, bases de datos y microservicios escalables.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Perfil 3 -->
+        <article class="card">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Sofía Martínez" class="avatar-img">
+            </div>
+            <div class="card-body">
+                <div>
+                    <h3>Sofía Martínez</h3>
+                    <div class="role">Diseñadora UX/UI Lead</div>
+                    <p class="desc">Transforma requerimientos en interfaces hermosas, accesibles e intuitivas para el usuario.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">Design System</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Innovatech Solutions. Desarrollado colaborativamente en GitHub.</p>
+    </footer>
+
+</body>
+</html>
